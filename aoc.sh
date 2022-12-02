@@ -19,7 +19,6 @@ HEAD=$(cat <<'EOF'
     article em { font-weight: bold; }
     main>article, main>p, pre.calendar, form, .leaderboard-entry { width: 40em !important; margin: auto; }
     header div { text-align: center; margin: auto; }
-    main>article+p, main>article:not(:last-of-type) { opacity: 0.5; }
 </style>
 </head>
 <body>
@@ -43,5 +42,5 @@ curl \
     "https://adventofcode.com/$Y/day/$D" \
     | sed -n '/<main>/,$p' \
     | prepend "$HEAD\n" \
-    | sed '/\/article/,/\/body/{//!d}' \
+    | sed '/\/main/,/\/body/{//!d}' \
     > "./$Y/$D/problem.html"
