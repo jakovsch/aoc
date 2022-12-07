@@ -2,7 +2,7 @@
 set -eu
 
 cd "$(dirname "$0")"
-test ".env" && source $_
+test -f ".env" && source $_
 
 Y=${YEAR:-$(date +%Y)}
 D=${DAY:-$(date +%-d)}
